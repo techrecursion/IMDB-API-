@@ -37,7 +37,7 @@ speechSearch.addEventListener("click", () => {
 });
 
 function SearchMovies(searchText) {
-    let imdbApi = 'http://www.omdbapi.com/?s=${searchText}&apikey=e5d446e0';
+    let imdbApi = `http://www.omdbapi.com/?s=${searchText}&apikey=e5d446e0`;
     window
     .fetch(imdbApi)
     .then((data) => {
