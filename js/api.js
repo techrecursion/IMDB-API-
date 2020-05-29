@@ -43,15 +43,17 @@ function SearchMovies(searchText) {
     .then((data) => {
         data.json()
         .then((movieData) => {
-            let movies = movieData.Search
+           let movies = movieData.Search;
             let output = [];
             for(let movie of movies) {
+                let defaultImg =
+                movie.Poster === "N/A"?"../images/default-image.png":movie.Poster;
                 output += `
                 <div>
-                    <img src="${movie.Poster}" alt="image">
+                    <img src="${defaultImg}" alt="image">
                     <h1>${movie.Title}</h1>
                     <p>${movie.Year}</p>
-                    <a href="http://www.imdb.com/title/${movie.imdbID}/" target="_blank">Movie Details</a>
+                    <a href="https://www.imdb.com/title/${movie.imdbID}/" target="_blank">Movie Details</a>
                 </div>
                 `;
             }
